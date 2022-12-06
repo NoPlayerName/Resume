@@ -489,10 +489,11 @@ section {
 # Akills
 --------------------------------------------------------------*/
 .skills .progress {
-  height: 60px;
+  height: 90px;
   display: block;
   background: none;
   border-radius: 0;
+  text-align: center;
 }
 
 .skills .progress .skill {
@@ -549,14 +550,14 @@ section {
   margin-bottom: 10px;
 }
 
-.resume .resume-item h5 {
+/* .resume .resume-item h5 {
   font-size: 16px;
   background: #f7f8f9;
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
-}
+} */
 
 .resume .resume-item ul {
   padding-left: 20px;
