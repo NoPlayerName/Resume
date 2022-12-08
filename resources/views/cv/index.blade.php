@@ -222,20 +222,7 @@
                         <div class="resume-item">
                             <h4>RS. Permata Keluarga Karawang</h4>
                             <h5>Februari 2021 - Juli 2022</h5>
-                            <p>Staff IT Support</p>
-                            <ul>
-                                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and
-                                    advertisements).</li>
-                                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                                <li>Created 4+ design presentations and proposals a month for clients and account managers
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="resume-item">
-                            <h4>RS. Permata Keluarga Karawang</h4>
-                            <h5>Februari 2021 - Juli 2022</h5>
-                            <p>Staff IT Support</p>
+                            <p>IT Support</p>
                             <ul>
                                 <li>Troubleshooting Hardware dan Softaware</li>
                                 <li>Memeriksa permintaan barang yang berkaitan dengan IT</li>
@@ -243,17 +230,9 @@
                             </ul>
                         </div>
                         <div class="resume-item">
-                            <h4>RS. Permata Keluarga Karawang</h4>
-                            <h5>Februari 2021 - Juli 2022</h5>
-                            <p>Staff IT Support</p>
-                            <ul>
-                                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and
-                                    advertisements).</li>
-                                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                                <li>Created 4+ design presentations and proposals a month for clients and account managers
-                                </li>
-                            </ul>
+                            <h4>PT. Duta Visual Nusantara Tivi Tujuh (Trans7)</h4>
+                            <h5>Juli 2022 - Sekarang</h5>
+                            <p>Software Developer</p>
                         </div>
                     </div>
                 </div>
