@@ -32,18 +32,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 
     {{-- font awesome --}}
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/fontawesome.min.css"> --}}
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/fontawesome.min.css"
-        integrity="sha512-6b+NpcSPVqcSpZ3NAJgjI2jEsRFbfSxiQparZY8AMtkG/WboCFEq7YyYpH6Eqmvrfm45kYT/iEqE2VC9yeRg9Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
     <script src="https://kit.fontawesome.com/3d26bfad26.js" crossorigin="anonymous"></script>
 
-    <!-- =======================================================
-  * Template Name: MyResume - v4.9.2
-  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body>
@@ -78,11 +69,13 @@
             <h1>Muhammad Ruhiyat</h1>
             <p><span class="typed" data-typed-items="Software Developer, IT Support"></span></p>
             <div class="social-links">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                {{-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> --}}
+                {{-- <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> --}}
+                <a href="https://www.instagram.com/muhammadruhiyat02" target="_blank" class="instagram"><i
+                        class="bx bxl-instagram"></i></a>
+                {{-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> --}}
+                <a href="https://www.linkedin.com/in/muhammad-ruhiyat-2163ab1b1/" class="linkedin" target="_blank"><i
+                        class="bx bxl-linkedin"></i></a>
             </div>
         </div>
     </section><!-- End Hero -->
@@ -94,14 +87,15 @@
     <footer id="footer">
         <div class="container">
             <h3>Muhammad Ruhiyat</h3>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi
-                placeat.</p>
+
             <div class="social-links">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                {{-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> --}}
+                {{-- <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> --}}
+                <a href="https://www.instagram.com/muhammadruhiyat02" target="_blank" class="instagram"><i
+                        class="bx bxl-instagram"></i></a>
+                {{-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> --}}
+                <a href="https://www.linkedin.com/in/muhammad-ruhiyat-2163ab1b1/" class="linkedin" target="_blank"><i
+                        class="bx bxl-linkedin"></i></a>
             </div>
             <div class="copyright">
                 &copy; Copyright {{ date('Y') }}
