@@ -271,10 +271,10 @@
                                 <div class="portfolio-links">
                                     <a href="{{ url('assets/img/portfolio/portfolio-1.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i
-                                            class="bx bx-plus"></i></a>
+                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="portfolio-details.html" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -290,10 +290,10 @@
                                 <div class="portfolio-links">
                                     <a href="{{ url('assets/img/portfolio/portfolio-2.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i
-                                            class="bx bx-plus"></i></a>
+                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="portfolio-details.html" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -309,10 +309,10 @@
                                 <div class="portfolio-links">
                                     <a href="{{ url('assets/img/portfolio/portfolio-3.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i
-                                            class="bx bx-plus"></i></a>
+                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="portfolio-details.html" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -328,10 +328,10 @@
                                 <div class="portfolio-links">
                                     <a href="{{ url('assets/img/portfolio/portfolio-4.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i
-                                            class="bx bx-plus"></i></a>
+                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="portfolio-details.html" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -347,10 +347,10 @@
                                 <div class="portfolio-links">
                                     <a href="{{ url('assets/img/portfolio/portfolio-5.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i
-                                            class="bx bx-plus"></i></a>
+                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="portfolio-details.html" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -366,10 +366,10 @@
                                 <div class="portfolio-links">
                                     <a href="{{ url('assets/img/portfolio/portfolio-6.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i
-                                            class="bx bx-plus"></i></a>
+                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="portfolio-details.html" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -385,10 +385,10 @@
                                 <div class="portfolio-links">
                                     <a href="{{ url('assets/img/portfolio/portfolio-7.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i
-                                            class="bx bx-plus"></i></a>
+                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="portfolio-details.html" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -404,10 +404,10 @@
                                 <div class="portfolio-links">
                                     <a href="{{ url('assets/img/portfolio/portfolio-8.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i
-                                            class="bx bx-plus"></i></a>
+                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="portfolio-details.html" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -423,10 +423,10 @@
                                 <div class="portfolio-links">
                                     <a href="{{ url('assets/img/portfolio/portfolio-9.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i
-                                            class="bx bx-plus"></i></a>
+                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="portfolio-details.html" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="bx bx-link"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                 </div>
                             </div>
                         </div>
