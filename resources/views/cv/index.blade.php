@@ -19,7 +19,8 @@
                     <div class="col-lg-8 pt-4 pt-lg-0 content">
                         <h3>Software Developer &amp; IT Support.</h3>
                         <p>
-                            Saya Muhammad Ruhiyat, saya seorang Software Developer dan juga IT Support. Saya memiliki
+                            Saya Muhammad Ruhiyat, Lulusan S1 Teknik Informatika Universitas Singaperbangsa Karawang, saya
+                            seorang Software Developer dan juga IT Support. Saya memiliki
                             pengalaman bekerja sebagai IT Support selama satu tahun disalah satu rumah sakit di Karawang,
                             mejabat sebagi Koordinator IT selama sembilan bulan. Dan saat ini saya bekerja sebagai Software
                             Developer pada PT. Duta Visual Nusantara Tivi Tujuh (Trans7). Saya memiliki keahlian dalam
@@ -151,9 +152,7 @@
 
                 <div class="section-title">
                     <h2>Resume</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                        consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                        fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>Singkat tentang pendidikan, pengalaman organisasi dan pengalam kerja saya</p>
                 </div>
 
                 <div class="row">
@@ -246,7 +245,7 @@
 
                 <div class="section-title">
                     <h2>Portfolio</h2>
-                    <p>Ini beberapa project yang pernah saya kerjakan.</p>
+                    <p>Beberapa project yang pernah saya kerjakan.</p>
                 </div>
 
                 <div class="row">
