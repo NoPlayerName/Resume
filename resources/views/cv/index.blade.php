@@ -205,7 +205,7 @@
                         <div class="resume-item">
                             <h4>Belajar dasar pemrograman WEB</h4>
                             <ul>
-                                <li>Dcoding</li>
+                                <li>Dicoding</li>
                                 <li>berlaku sampai 23 November 2023</li>
                             </ul>
                         </div>
@@ -248,31 +248,34 @@
                     <p>Beberapa project yang pernah saya kerjakan.</p>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                        <ul id="portfolio-flters">
-                            <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-app">App</li>
-                            <li data-filter=".filter-card">Card</li>
-                            <li data-filter=".filter-web">Web</li>
-                        </ul>
-                    </div>
-                </div>
 
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="col-lg-6 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid"
-                                alt="">
+                            <img src="{{ url('assets/img/portfolio/antrian.png') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <h4>App 1</h4>
-                                <p>App</p>
+                                <h4>Antrian pengambilan obat pada instalasi farmasi rumah sakit</h4>
                                 <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/portfolio-1.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i
+                                    <a href="{{ url('assets/img/portfolio/antrian.png') }}" data-gallery="portfolioGallery"
+                                        class="portfolio-lightbox"><i class="fa-solid fa-magnifying-glass-plus"></i></a>
+                                    <a href="https://antrian-apotek.mruhiyat.my.id/" target="_blank"><i
+                                            class="fa-solid fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 portfolio-item filter-web">
+                        <div class="portfolio-wrap">
+                            <img src="{{ url('assets/img/portfolio/webkoni.png') }}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Web KONI Karawang</h4>
+                                <div class="portfolio-links">
+                                    <a href="{{ url('assets/img/portfolio/webkoni.png') }}"
+                                        data-gallery="portfolioGallery" class="portfolio-lightbox"><i
                                             class="fa-solid fa-magnifying-glass-plus"></i></a>
-                                    <a href="portfolio-details.html" class="portfolio-details-lightbox"
+                                    <a href="http://koni-karawang.org/" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
                                             class="fa-solid fa-eye"></i></a>
                                 </div>
@@ -280,45 +283,27 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="col-lg-6 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/portfolio-2.jpg') }}" class="img-fluid"
+                            <img src="{{ url('assets/img/portfolio/telegrambot.png') }}" class="img-fluid"
                                 alt="">
                             <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
+                                <h4>Project Skripsi Bot Telegram
+                                    Manajemen Administrasi Indihome
+                                    Telkom Witel Karawang</h4>
                                 <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/portfolio-2.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i
+                                    <a href="{{ url('assets/img/portfolio/telegrambot.png') }}"
+                                        data-gallery="portfolioGallery" class="portfolio-lightbox"><i
                                             class="fa-solid fa-magnifying-glass-plus"></i></a>
-                                    <a href="portfolio-details.html" class="portfolio-details-lightbox"
+                                    {{-- <a href="portfolio-details.html" class="portfolio-details-lightbox"
                                         data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="fa-solid fa-eye"></i></a>
+                                            class="fa-solid fa-eye"></i></a> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/portfolio-3.jpg') }}" class="img-fluid"
-                                alt="">
-                            <div class="portfolio-info">
-                                <h4>App 2</h4>
-                                <p>App</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/portfolio-3.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i
-                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
-                                    <a href="portfolio-details.html" class="portfolio-details-lightbox"
-                                        data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="fa-solid fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    {{-- <div class="col-lg-6 col-md-6 portfolio-item filter-card">
                         <div class="portfolio-wrap">
                             <img src="{{ url('assets/img/portfolio/portfolio-4.jpg') }}" class="img-fluid"
                                 alt="">
@@ -335,102 +320,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/portfolio-5.jpg') }}" class="img-fluid"
-                                alt="">
-                            <div class="portfolio-info">
-                                <h4>Web 2</h4>
-                                <p>Web</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/portfolio-5.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i
-                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
-                                    <a href="portfolio-details.html" class="portfolio-details-lightbox"
-                                        data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="fa-solid fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/portfolio-6.jpg') }}" class="img-fluid"
-                                alt="">
-                            <div class="portfolio-info">
-                                <h4>App 3</h4>
-                                <p>App</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/portfolio-6.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i
-                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
-                                    <a href="portfolio-details.html" class="portfolio-details-lightbox"
-                                        data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="fa-solid fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/portfolio-7.jpg') }}" class="img-fluid"
-                                alt="">
-                            <div class="portfolio-info">
-                                <h4>Card 1</h4>
-                                <p>Card</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/portfolio-7.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i
-                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
-                                    <a href="portfolio-details.html" class="portfolio-details-lightbox"
-                                        data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="fa-solid fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/portfolio-8.jpg') }}" class="img-fluid"
-                                alt="">
-                            <div class="portfolio-info">
-                                <h4>Card 3</h4>
-                                <p>Card</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/portfolio-8.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i
-                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
-                                    <a href="portfolio-details.html" class="portfolio-details-lightbox"
-                                        data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="fa-solid fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/portfolio-9.jpg') }}" class="img-fluid"
-                                alt="">
-                            <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/portfolio-9.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i
-                                            class="fa-solid fa-magnifying-glass-plus"></i></a>
-                                    <a href="portfolio-details.html" class="portfolio-details-lightbox"
-                                        data-glightbox="type: external" title="Portfolio Details"><i
-                                            class="fa-solid fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
 
@@ -452,8 +343,7 @@
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Alamat:</h4>
-                                <p>Jl. Raya Klari, Gang Adang Jaka, RT. 25/06, Desa Gintung Kerta, Kec. Klari, Kab.
-                                    Karawang, Jawa Barat</p>
+                                <p>Karawang, Jawa Barat</p>
                             </div>
 
                             <div class="email">
