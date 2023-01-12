@@ -253,11 +253,11 @@
 
                     <div class="col-lg-6 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/antrian.png') }}" class="img-fluid" alt="">
+                            <img src="{{ url('assets/img/portfolio/antrian.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Antrian pengambilan obat pada instalasi farmasi rumah sakit</h4>
                                 <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/antrian.png') }}" data-gallery="portfolioGallery"
+                                    <a href="{{ url('assets/img/portfolio/antrian.jpg') }}" data-gallery="portfolioGallery"
                                         class="portfolio-lightbox"><i class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="https://antrian-apotek.mruhiyat.my.id/" target="_blank"><i
                                             class="fa-solid fa-eye"></i></a>
@@ -268,11 +268,11 @@
 
                     <div class="col-lg-6 col-md-6 portfolio-item filter-web">
                         <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/webkoni.png') }}" class="img-fluid" alt="">
+                            <img src="{{ url('assets/img/portfolio/webkoni.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Web KONI Karawang</h4>
                                 <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/webkoni.png') }}"
+                                    <a href="{{ url('assets/img/portfolio/webkoni.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox"><i
                                             class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     <a href="http://koni-karawang.org/" class="portfolio-details-lightbox"
@@ -285,14 +285,14 @@
 
                     <div class="col-lg-6 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/telegrambot.png') }}" class="img-fluid"
+                            <img src="{{ url('assets/img/portfolio/telegrambot.jpg') }}" class="img-fluid"
                                 alt="">
                             <div class="portfolio-info">
                                 <h4>Project Skripsi Bot Telegram
                                     Manajemen Administrasi Indihome
                                     Telkom Witel Karawang</h4>
                                 <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/telegrambot.png') }}"
+                                    <a href="{{ url('assets/img/portfolio/telegrambot.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox"><i
                                             class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     {{-- <a href="portfolio-details.html" class="portfolio-details-lightbox"
@@ -305,12 +305,12 @@
 
                     <div class="col-lg-6 col-md-6 portfolio-item filter-card">
                         <div class="portfolio-wrap">
-                            <img src="{{ url('assets/img/portfolio/dashboard admin website.png') }}" class="img-fluid"
+                            <img src="{{ url('assets/img/portfolio/dashboard admin website.jpg') }}" class="img-fluid"
                                 alt="">
                             <div class="portfolio-info">
                                 <h4>Dashboard admin website</h4>
                                 <div class="portfolio-links">
-                                    <a href="{{ url('assets/img/portfolio/dashboard admin website.png') }}"
+                                    <a href="{{ url('assets/img/portfolio/dashboard admin website.jpg') }}"
                                         data-gallery="portfolioGallery" class="portfolio-lightbox"><i
                                             class="fa-solid fa-magnifying-glass-plus"></i></a>
                                     {{-- <a href="portfolio-details.html" class="portfolio-details-lightbox"
