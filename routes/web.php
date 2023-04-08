@@ -21,6 +21,8 @@ Route::get('/', function () {
 });
 
 Route::get('login/', [AuthController::class, 'index'])->name('login')->middleware('guest');
+Route::get('register/', [AuthController::class, 'register'])->name('register')->middleware('guest');
+Route::post('register/store', [AuthController::class, 'store'])->middleware('guest');
 Route::get('index/', [ResumeController::class, 'index']);
 
 Route::scopeBindings()->middleware('auth')->group(function()
