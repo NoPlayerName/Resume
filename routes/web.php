@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ResumeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +20,14 @@ Route::get('/', function () {
     return view('cv.index');
 });
 
+Route::get('login/', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::get('index/', [ResumeController::class, 'index']);
+
+Route::scopeBindings()->middleware('auth')->group(function()
+{
+    Route::get('admin/', [AdminController::class, 'index']);
+    Route::get('admin/profile', [AdminController::class, 'profile']);
+});
+
+
+
