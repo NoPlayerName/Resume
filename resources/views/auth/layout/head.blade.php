@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>{{$title}}</title>
+    <title>{{ $title }}</title>
     <link href="{{ url('assets/css/adminstyle.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -17,13 +17,13 @@
     <div id="layoutAuthentication_footer">
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2022</div>
-                    <div>
+                <div class="d-flex align-items-center justify-content-center small">
+                    <div class="text-muted">Muhammad Ruhiyat &copy; {{ date('Y') }}</div>
+                    {{-- <div>
                         <a href="#">Privacy Policy</a>
                         &middot;
                         <a href="#">Terms &amp; Conditions</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </footer>

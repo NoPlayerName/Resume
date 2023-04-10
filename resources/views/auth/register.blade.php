@@ -15,7 +15,7 @@
                                     <div class="card-body">
                                         <form>
                                             <div class="row mb-3">
-                                                <div class="col-md-6">
+                                                <div class="col-md">
                                                     <div class="form-floating mb-3 mb-md-0">
                                                         <input class="form-control" id="inputFirstName" type="text"
                                                             placeholder="Enter your first name" />
@@ -51,7 +51,8 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="login.html">Have an account? Go to login</a></div>
+                                        <div class="small"><a href="{{ route('login') }}">Have an account? Go to login</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
