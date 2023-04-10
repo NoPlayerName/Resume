@@ -32,7 +32,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
                                                         <input class="form-control" id="inputPassword" type="password"
-                                                            placeholder="Create a password" />
+                                                            placeholder="Create a password" /><span
+                                                            class="fa-solid fa-eye"></span>
                                                         <label for="inputPassword">Password</label>
                                                     </div>
                                                 </div>
@@ -44,9 +45,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block"
-                                                        href="login.html">Create Account</a></div>
+                                            <div class="mt-4 mb-0 ">
+                                                <div class="d-grid gap-2 col-6 mx-auto""><button
+                                                        class="btn btn-primary btn-block">Create
+                                                        Account</button> </div>
                                             </div>
                                         </form>
                                     </div>
@@ -61,4 +63,7 @@
                 </main>
             </div>
     </body>
+    <script type="javascript">
+
+    </script>
 @endsection
