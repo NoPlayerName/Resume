@@ -10,26 +10,18 @@
     <title>Dashboard Resume</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{ url('assets/css/adminstyle.css') }}" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">Admin Dashboard</a>
-        <!-- Sidebar Toggle-->
+
+        <a class="navbar-brand ps-3" href="{{ route('admin') }}">Admin Dashboard</a>
+
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
-        {{-- <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"> --}}
-        {{-- <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
-                    aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-                        class="fas fa-search"></i></button>
-            </div> --}}
-        {{-- </form> --}}
-        <!-- Navbar-->
+
         <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0 ">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
@@ -40,7 +32,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li><a class="dropdown-item" id="logout">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -48,19 +40,19 @@
     <div id="layoutSidenav">
         @yield('sidebar')
         @yield('main')
+    </div>
+    {{-- <div id="layoutSidenav_content"> --}}
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-center small">
-                    <div class="text-muted">Muhammad Ruhiyat &copy; {{ date('Y') }}</div>
-                    {{-- <div>
-                        <a href="#">Privacy Policy</a>
-                        &middot;
-                        <a href="#">Terms &amp; Conditions</a>
-                    </div> --}}
+                    <div class="text-muted">Muhammad Ruhiyat &copy; {{ date('Y') }} </div>
+
                 </div>
             </div>
         </footer>
-    </div>
+    {{-- </div> --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="{{ url('assets/js/scripts.js') }}"></script>
@@ -69,6 +61,60 @@
     <script src="{{ url('assets/demo/chart-bar-demo.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="{{ url('assets/js/datatables-simple-demo.js') }}"></script>
+    <script>
+        window.setupToastr = function () {
+            toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        };
+
+        // Set toastr globally
+        $(document).ready(function () {
+            setupToastr();
+            $('#logout').on('click', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('logout') }}",
+                    data: {
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function (response) {
+                        if (response.status === 200) {
+                            toastr.success(response.message);
+                            setTimeout(function () {
+                                window.location.href = response.data.redirect_url;
+                            }, 3000);
+                        } else {
+                            toastr.error(response.message);
+                        }
+                    },
+                    error: function (xhr) {
+                            var errors = xhr.responseJSON.errors;
+                            $.each(errors, function (key, value) {
+                                toastr.error(value[0]);
+                            });
+                        }
+                });
+            });
+
+        });
+    </script>
+    @stack('scripts')
 </body>
 
 </html>

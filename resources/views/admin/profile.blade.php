@@ -1,4 +1,4 @@
-@extends('layout admin.head')
+@extends('layout_admin.head')
 @extends('component.sidebar')
 @section('main')
     <div id="layoutSidenav_content">
@@ -16,17 +16,6 @@
                 </div>
             </div>
         </main>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Muhammad Ruhiyat &copy; {{ date('Y') }}</div>
-                    <div>
-                        <a href="#">Privacy Policy</a>
-                        &middot;
-                        <a href="#">Terms &amp; Conditions</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+
     </div>
 @endsection

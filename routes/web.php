@@ -16,20 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('cv.index');
-});
 
-Route::get('login/', [AuthController::class, 'index'])->name('login')->middleware('guest');
-Route::get('register/', [AuthController::class, 'register'])->name('register')->middleware('guest');
-Route::post('register/store', [AuthController::class, 'store'])->middleware('guest');
-Route::get('index/', [ResumeController::class, 'index']);
+Route::get('/', [ResumeController::class, 'index']);
+
+Route::get('login/', [AuthController::class, 'index'])->name('login');
+Route::post('logout/', [AuthController::class, 'logout'])->name('logout');
+Route::post('login/sign', [AuthController::class, 'login'])->name('login.sign');
+Route::get('register/', [AuthController::class, 'register'])->name('register');
+Route::post('register/store', [AuthController::class, 'store'])->name('register.store');
 
 Route::scopeBindings()->middleware('auth')->group(function()
 {
-    Route::get('admin/', [AdminController::class, 'index']);
+    Route::get('admin/', [AdminController::class, 'index'])->name('admin');
     Route::get('admin/profile', [AdminController::class, 'profile']);
 });
-
-
-
