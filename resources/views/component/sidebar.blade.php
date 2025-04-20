@@ -1,15 +1,15 @@
 @section('sidebar')
-    <div id="layoutSidenav_nav">
+    
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link" href="{{ route('admin') }}">
+                    <a class="nav-link {{ Route::is('admin') ? 'active' : '' }}" href="{{ route('admin') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>
                     <div class="sb-sidenav-menu-heading">Resume</div>
-                    <a class="nav-link collapsed" href="{{ url('admin/profile') }}">
+                    <a class="nav-link collapsed {{ Route::is('admin.profile') ? 'active' : '' }}" href="{{ url('admin/profile') }}">
 
                         Profile
 
@@ -75,5 +75,5 @@
                 {{ auth()->user()->name }}
             </div>
         </nav>
-    </div>
+   
 @endsection

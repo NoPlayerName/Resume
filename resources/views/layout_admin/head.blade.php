@@ -38,19 +38,22 @@
         </ul>
     </nav>
     <div id="layoutSidenav">
-        @yield('sidebar')
-        @yield('main')
-    </div>
-    {{-- <div id="layoutSidenav_content"> --}}
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-center small">
-                    <div class="text-muted">Muhammad Ruhiyat &copy; {{ date('Y') }} </div>
+        <div id="layoutSidenav_nav">
+            @yield('sidebar')
+        </div>
+        <div id="layoutSidenav_content">
+            @yield('main')
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-center small">
+                        <div class="text-muted">Muhammad Ruhiyat &copy; {{ date('Y') }} </div>
 
+                    </div>
                 </div>
-            </div>
-        </footer>
-    {{-- </div> --}}
+            </footer>
+        </div>
+    </div>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">

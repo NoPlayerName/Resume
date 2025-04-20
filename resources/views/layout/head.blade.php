@@ -86,17 +86,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container">
-            <h3>Muhammad Ruhiyat</h3>
-
-            <div class="social-links">
-                {{-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> --}}
-                {{-- <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> --}}
-                <a href="https://www.instagram.com/muhammadruhiyat02" target="_blank" class="instagram"><i
-                        class="bx bxl-instagram"></i></a>
-                {{-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> --}}
-                <a href="https://www.linkedin.com/in/muhammad-ruhiyat-2163ab1b1/" class="linkedin" target="_blank"><i
-                        class="bx bxl-linkedin"></i></a>
-            </div>
+            
             <div class="copyright">
                 &copy; Copyright {{ date('Y') }}
             </div>

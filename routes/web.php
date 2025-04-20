@@ -28,5 +28,5 @@ Route::post('register/store', [AuthController::class, 'store'])->name('register.
 Route::scopeBindings()->middleware('auth')->group(function()
 {
     Route::get('admin/', [AdminController::class, 'index'])->name('admin');
-    Route::get('admin/profile', [AdminController::class, 'profile']);
+    Route::get('admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
 });

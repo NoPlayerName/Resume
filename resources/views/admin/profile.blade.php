@@ -1,21 +1,12 @@
 @extends('layout_admin.head')
 @extends('component.sidebar')
 @section('main')
-    <div id="layoutSidenav_content">
         <main>
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="text-center mt-4">
-                        <img class="mb-4 img-error" src="{{ url('assets/img/error-404-monochrome.svg') }}" />
-                        <p class="lead">This requested URL was not found on this server.</p>
-                        <a href="index.html">
-                            <i class="fas fa-arrow-left me-1"></i>
-                            Return to Dashboard
-                        </a>
-                    </div>
+            <div class="container-fluid px-4">
+                <div class="card mt-4">
+                    <div class="card-header">{{ @$title }}</div>
+                    <div class="card-body">Primary Card</div>
                 </div>
             </div>
         </main>
-
-    </div>
 @endsection
