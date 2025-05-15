@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('profile', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('role');
+            $table->jsonb('role');
             $table->text('about_me');
             $table->date('tgl_lahir');
             $table->string('tmpt_lahir');
-            $table->jsonb('kontak');
+            $table->jsonb('kontak')->nullable();
             $table->timestamps();
         });
     }

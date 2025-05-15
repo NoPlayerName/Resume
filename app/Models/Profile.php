@@ -2,25 +2,29 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Profile extends Model
+class Profile extends BaseModel
 {
-    use HasFactory;
+
 
     protected $table = 'profile';
-    
+
     protected $fillable = [
         'name',
         'role',
         'about_me',
         'tgl_lahir',
         'tmpt_lahir',
-        'kontak'
+        'kontak',
+        'sosmed',
     ];
 
     protected $casts = [
         'kontak' => 'array',
+        'sosmed' => 'array',
     ];
+
+    public function foto()
+    {
+        return $this->hasOne(Dokumen::class, 'id', 'id_profile');
+    }
 }

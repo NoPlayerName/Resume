@@ -48,7 +48,7 @@ class AuthController extends Controller
     public function login(LoginData $login, Request $request)
     {
         // dd($login);
-        $user = User::where('email', $login->email)->first();
+        $user = User::where('username', $login->username)->first();
 
         if (!$user || !Hash::check($login->password, $user->password)) {
             return $this->responseUnAuthorized('Invalid credentials');

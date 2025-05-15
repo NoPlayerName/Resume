@@ -13,16 +13,24 @@
                                 <div class="card-body">
                                     <form id="login" method="POST">
                                         @csrf
-                                        <div class="form-floating mb-3">
-                                            <input name="email" class="form-control" id="inputEmail"/>
-                                            <label for="inputEmail">Email address</label>
+                                        <div class="row mb-3">
+                                            <div class="col-md">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input name="username" class="form-control" id="username" type="text"
+                                                        placeholder="username" />
+                                                    <label for="username">Username</label>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-floating mb-3">
-                                            <input  name="password" class="form-control" id="inputPassword" type="password"/>
-                                            <label for="inputPassword">Password</label>
+                                        <div class="row mb-3">
+                                            <div class="col-md">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input name="password" class="form-control" id="inputPassword" type="password"
+                                                        placeholder="Create a password" />
+                                                    <label for="inputPassword">Password</label>
+                                                </div>
+                                            </div>
                                         </div>
-                                        
-
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="password.html">Forgot Password?</a>
                                             <button type="submit" class="btn btn-primary" href="index.html">Login</button>

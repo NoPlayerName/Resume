@@ -8,7 +8,7 @@ use Spatie\LaravelData\Support\Validation\ValidationContext;
 class LoginData extends Data
 {
     public function __construct(
-        public string $email,
+        public string $username,
         public string $password,
     ) {
     }
@@ -16,11 +16,9 @@ class LoginData extends Data
     public static function rules(): array
     {
         return [
-            'email' => [
+            'username' => [
                 'required',
-                'string',
-                'email',
-                'max:255',
+                'string'
             ],
             'password' => [
                 'required',
