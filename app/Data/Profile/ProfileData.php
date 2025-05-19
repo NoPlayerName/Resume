@@ -11,12 +11,12 @@ class ProfileData extends Data
     public function __construct(
         public string $name,
         public UploadedFile $foto,
-        public string $role,
+        public array $role,
         public string $about_me,
         public string $tmpt_lahir,
         public string $tgl_lahir,
         public ?array $sosmed,
-        public array $kontak,
+        public ?array $kontak,
     )
     {
     }
@@ -35,16 +35,15 @@ class ProfileData extends Data
             ],
 
             'kontak.email' => [
-                'nullable'
+                'nullable',
+                'email',
             ],
 
-            'kontak.hp1' => [
+            'kontak.hp' => [
                 'nullable',
             ],
 
-            'kontak.hp2' => [
-                'nullable',
-            ],
+
         ];
     }
 }

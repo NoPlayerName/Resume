@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\JenisDokumen;
+
 class Profile extends BaseModel
 {
 
@@ -18,13 +20,24 @@ class Profile extends BaseModel
         'sosmed',
     ];
 
+    protected $appends = [
+        'foto',
+    ];
+
     protected $casts = [
+        'role' => 'array',
         'kontak' => 'array',
         'sosmed' => 'array',
     ];
 
-    public function foto()
+    public function dokumen()
     {
-        return $this->hasOne(Dokumen::class, 'id', 'id_profile');
+        return $this->hasOne(Dokumen::class, 'id_profile', 'id')->where('type_dokumen', JenisDokumen::FOTO);
+    }
+
+    public function getFotoAttribute()
+    {
+        $foto = $this->dokumen;
+        return $foto ? asset('storage/' . $foto->file_path) : null;
     }
 }

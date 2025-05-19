@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Action\Profile\StoreProfile;
 use App\Data\Profile\ProfileData;
+use App\Data\Profile\ProfileResponse;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -23,15 +25,6 @@ class ProfileController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(ProfileData $data)
-    {
-        StoreProfile::run($data);
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -39,9 +32,13 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfileData $data)
     {
-        //
+        if (auth()->user()->cannot('create')) {
+            return abort(401, 'unauthorize');
+        }
+        StoreProfile::run($data);
+        return $this->responseSuccess('Profile berhasil disimpan');
     }
 
     /**
@@ -50,9 +47,13 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($profile)
     {
-        //
+        if (auth()->user()->cannot('view')) {
+            return abort(401, 'unauthorize');
+        }
+        $profile = Profile::first();
+        return $this->responseSuccess(data: ProfileResponse::from($profile));
     }
 
     /**

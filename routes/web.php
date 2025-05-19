@@ -26,8 +26,8 @@ Route::post('login/sign', [AuthController::class, 'login'])->name('login.sign');
 Route::get('register/', [AuthController::class, 'register'])->name('register');
 Route::post('register/store', [AuthController::class, 'store'])->name('register.store');
 
-Route::scopeBindings()->middleware('auth')->group(function()
+Route::scopeBindings()->middleware('auth')->prefix('admin')->name('admin.')->group(function()
 {
-    Route::get('admin/', [AdminController::class, 'index'])->name('admin');
-    Route::resource('admin/profile', ProfileController::class);
+    Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::resource('profile', ProfileController::class)->except(['create']);
 });
