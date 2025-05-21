@@ -59,7 +59,7 @@ class AuthController extends Controller
 
         return $this->responseSuccess('Login berhasil', [
             'user' => $user,
-            'redirect_url' => route('admin')
+            'redirect_url' => route('admin.index'),
         ]);
     }
 

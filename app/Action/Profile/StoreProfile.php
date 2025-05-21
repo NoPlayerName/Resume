@@ -31,7 +31,7 @@ class StoreProfile
                {
                     $filePath = $data->foto->store(JenisDokumen::FOTO->getDirName(), 'public');
 
-                    $profile->foto()->create([
+                    $profile->dokumen()->create([
                         'type_dokumen' => JenisDokumen::FOTO,
                         'file_path' => $filePath,
                     ]);

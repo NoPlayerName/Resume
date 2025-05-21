@@ -30,4 +30,5 @@ Route::scopeBindings()->middleware('auth')->prefix('admin')->name('admin.')->gro
 {
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('profile', ProfileController::class)->except(['create']);
+    Route::get('get-profile', [ProfileController::class, 'getProfile'])->name('get-profile');
 });

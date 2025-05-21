@@ -10,7 +10,7 @@ class ProfileData extends Data
 {
     public function __construct(
         public string $name,
-        public UploadedFile $foto,
+        public ?UploadedFile $foto,
         public array $role,
         public string $about_me,
         public string $tmpt_lahir,
@@ -25,7 +25,7 @@ class ProfileData extends Data
     {
         return [
             'foto' => [
-                'required',
+                'nullable',
                 'file',
                 'max:2048',
                 'mimes:jpg, jpeg'

@@ -38,6 +38,6 @@ class Profile extends BaseModel
     public function getFotoAttribute()
     {
         $foto = $this->dokumen;
-        return $foto ? asset('storage/' . $foto->file_path) : null;
+        return $foto ? asset('storage/' . $foto->file_path) : asset('storage/dummy.jpg');
     }
 }

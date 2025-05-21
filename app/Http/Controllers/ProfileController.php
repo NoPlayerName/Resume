@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Action\Profile\StoreProfile;
+use App\Action\Profile\UpdateProfile;
 use App\Data\Profile\ProfileData;
 use App\Data\Profile\ProfileResponse;
 use App\Models\Profile;
@@ -25,6 +26,15 @@ class ProfileController extends Controller
 
     }
 
+    public function getProfile()
+    {
+
+        if (auth()->user()->cannot('view')) {
+            return abort(401, 'unauthorize');
+        }
+        $profile = Profile::first();
+        return $this->responseSuccess(data: $profile ? ProfileResponse::from($profile) : null);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +44,7 @@ class ProfileController extends Controller
      */
     public function store(ProfileData $data)
     {
-        if (auth()->user()->cannot('create')) {
+        if (auth()->user()->cannot('edit')) {
             return abort(401, 'unauthorize');
         }
         StoreProfile::run($data);
@@ -49,11 +59,6 @@ class ProfileController extends Controller
      */
     public function show($profile)
     {
-        if (auth()->user()->cannot('view')) {
-            return abort(401, 'unauthorize');
-        }
-        $profile = Profile::first();
-        return $this->responseSuccess(data: ProfileResponse::from($profile));
     }
 
     /**
@@ -74,10 +79,17 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Profile $profile, ProfileData $data)
     {
-        //
+        // dd($data);
+         if (auth()->user()->cannot('edit')) {
+            return abort(401, 'unauthorize');
+        }
+        UpdateProfile::run($profile, $data);
+        return $this->responseSuccess('Profile berhasil diupdate');
+
     }
+
 
     /**
      * Remove the specified resource from storage.

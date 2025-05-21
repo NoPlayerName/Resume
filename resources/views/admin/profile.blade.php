@@ -11,44 +11,45 @@
                         <div class="container">
                             <form class="row" id="profile" method="POST">
                                 @csrf
+                                <input type="hidden" id="profile_id" value="">
                                 <div class="col-md-4 mb-3">
                                     <div class="col">
                                         <div class="form-grup mb-2">
-                                            <label for="formFile" class="form-label">Default file input example</label>
+                                            <label for="formFile" class="form-label">Foto</label>
                                             <input class="form-control form-control-sm" name="foto" type="file" id="formFile">
                                         </div>
-                                        <img id="foto" class="img-thumbnail" alt="...">
+                                        <img id="foto" src="{{ asset('storage/dummy.jpg')}}" class="img-thumbnail" alt="...">
                                     </div>
                                 </div>
                                 <div class="col mb-3">
                                     <div class="col-md-6 mt-2 ">
                                         <div class="input-group ">
                                             <span class="input-group-text" id="basic-addon1">Nama</span>
-                                            <input type="text" name="name" class="form-control form-control-sm" placeholder="Nama" aria-label="Nama" aria-describedby="basic-addon1">
+                                            <input id="nama" type="text" name="name" class="form-control form-control-sm" placeholder="Nama" aria-label="Nama" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-md-6 mt-2 ">
                                         <div class="input-group ">
                                             <span class="input-group-text" id="basic-addon1">Tempat Lahir</span>
-                                            <input type="text" name="tmpt_lahir" class="form-control form-control-sm" placeholder="Tempat Lahir" aria-label="Tempat Lahir" aria-describedby="basic-addon1">
+                                            <input id="tmpt_lahir" type="text" name="tmpt_lahir" class="form-control form-control-sm" placeholder="Tempat Lahir" aria-label="Tempat Lahir" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-md-6 mt-2 ">
                                         <div class="input-group ">
                                             <span class="input-group-text" id="basic-addon1">Tgl Lahir</span>
-                                            <input type="date" name="tgl_lahir" class="form-control form-control-sm" aria-describedby="basic-addon1">
+                                            <input id="tgl_lahir" type="date" name="tgl_lahir" class="form-control form-control-sm" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-md-6 mt-2 ">
                                         <div class="input-group ">
                                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
-                                            <input type="email" name="kontak['email']" class="form-control form-control-sm" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                                            <input id="email" type="email" name="kontak[email]" class="form-control form-control-sm" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-md-6 mt-2 ">
                                         <div class="input-group ">
                                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile"></i></span>
-                                            <input type="text" name="kontak['hp']" class="form-control form-control-sm" placeholder="No Hp" aria-label="No Hp" aria-describedby="basic-addon1">
+                                            <input id="hp" type="text" name="kontak[hp]" class="form-control form-control-sm" placeholder="No Hp" aria-label="No Hp" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-md-6 mt-2">
@@ -67,7 +68,7 @@
                                             <textarea id="ckEditor" name="about_me" class="form-control" aria-label="With textarea"></textarea>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-sm mt-2">Simpan</button>
+                                    <button type="submit" id="btn-action" class="btn btn-primary btn-sm mt-2">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -78,51 +79,64 @@
         @push('scripts')
             <script>
                 $(document).ready(function () {
-                    const id = 1;
-                    console.log('CKEDITOR:', typeof CKEDITOR);
-                    CKEDITOR.replace('ckEditor', {
+                      CKEDITOR.replace('ckEditor', {
+                        // extraPlugins: 'justify',
+                        allowedContent: true,
+                        extraAllowedContent: '*[*]{*}',
                         toolbar: [
                             { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'Undo', 'Redo'] },
                             { name: 'editing', items: ['Find', 'Replace'] },
                             { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
                             { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+                            { name: 'alignment', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+                            { name: 'styles', items: ['Format', 'Font', 'FontSize'] },
+                            { name: 'colors', items: ['TextColor', 'BGColor'] },
+                            { name: 'tools', items: ['Maximize'] }
                         ]
                     });
 
-                    $.ajax({
-                        type: 'GET',
-                        url: `profile/${id}`,
+                    const syncCkEditor = () => {
+                        Object.values(CKEDITOR.instances).forEach(instance => instance.updateElement());
+                    };
 
-                        success: function (response) {
-                            console.log(response);
-                            if (response.status === 200) {
-                                const data = response.data;
-                                $('input[name="name"]').val(data.name);
-                                $('input[name="tmpt_lahir"]').val(data.tmpt_lahir);
-                                $('input[name="tgl_lahir"]').val(data.tgl_lahir);
-                                $('textarea[name="about_me"]').val(data.about_me);
-                                $('#ckEditor').val(data.about_me);
-                                $('#foto').attr('src', data.foto ? `${data.foto}` : '{{ url('assets/img/default.png') }}');
+                    const loadData = () => {
+                        $.ajax({
+                            type: 'GET',
+                            url: "{{ route('admin.get-profile') }}",
+                            success: function (response) {
+                                    const data = response.data;
+                                    if (data) {
 
-                                $('#role-wrapper').empty();
+                                            $('#nama').val(data.name);
+                                            $('#tmpt_lahir').val(data.tmpt_lahir);
+                                            $('#tgl_lahir').val(data.tgl_lahir);
+                                            $('#email').val(data.kontak["email"]);
+                                            $('#hp').val(data.kontak["hp"]);
+                                            $('#profile_id').val(data.id);
+                                            $('#ckEditor').val(data.about_me);
+                                            $('#foto').attr('src', data.foto ? `${data.foto}` : '{{ asset(`storage/dummy.jpg`) }}');
 
-                                data.role.forEach(function(role, index) {
-                                        const inputGroup = `
-                                            <div class="input-group mb-2">
-                                                <span class="input-group-text" id="basic-addon1">Role</span>
-                                                <input type="text" name="role[]" class="form-control form-control-sm" placeholder="Masukkan role" value="${role}">
-                                                <button type="button" class="btn btn-sm ms-2 remove-role" data-bs-toggle="tooltip" title="Hapus"><i class="fa-solid fa-trash" style="color: #b30000;"></i></button>
-                                            </div>
-                                        `;
-                                        $('#role-wrapper').append(inputGroup);
-                                    });
+                                            $('#role-wrapper').empty();
 
+                                            data.role.forEach(function(role, index) {
+                                                    const inputGroup = `
+                                                        <div class="input-group mb-2">
+                                                            <span class="input-group-text" id="basic-addon1">Role</span>
+                                                            <input type="text" name="role[]" class="form-control form-control-sm" placeholder="Masukkan role" value="${role}">
+                                                            <button type="button" class="btn btn-sm ms-2 remove-role" data-bs-toggle="tooltip" title="Hapus"><i class="fa-solid fa-trash" style="color: #b30000;"></i></button>
+                                                        </div>
+                                                    `;
+                                                    $('#role-wrapper').append(inputGroup);
+                                            });
+                                    }
+
+                            },
+                            error: function (xhr) {
+                                toastr.error('Terjadi kesalahan saat memuat data.');
                             }
-                        },
-                        error: function (xhr) {
-                            toastr.error('Terjadi kesalahan saat memuat data.');
-                        }
-                    })
+                        });
+                    };
+
 
                     $('#add-role').on('click', function () {
 
@@ -136,25 +150,39 @@
                         $('#role-wrapper').append(inputGroup);
                     });
 
+
                     $('#role-wrapper').on('click', '.remove-role', function () {
                         $(this).closest('.input-group').remove();
                     });
 
+
                     $('#profile').on('submit', function (e) {
                         e.preventDefault();
-                        console.log(FormData(this));
+
+                        const id = $('#profile_id').val();
+
+                        syncCkEditor();
+                        let ajaxUrl = "{{ route('admin.profile.store') }}";
+                        const formData = new FormData(this);
+                        formData.append('_token', $('meta[name="csrf-token"]').attr('content'));
+
+                        if (id) {
+                            ajaxUrl = `/admin/profile/${id}`;
+                            formData.append('_method', 'PUT');
+                        }
 
                         $.ajax({
                             type: 'POST',
-                            url: "{{ route('admin.profile.store') }}",
-                            data: new FormData(this),
+                            url: ajaxUrl,
+                            data: formData,
                             contentType: false,
                             processData: false,
                             success: function (response) {
                                 toastr.success(response.message);
-                                setTimeout(function () {
-                                    window.location.href = response.data.redirect_url;
-                                }, 3000);
+                                loadData();
+                                // setTimeout(function () {
+                                //     window.location.href = response.data.redirect_url;
+                                // }, 3000);
                             },
                             error: function (xhr) {
                                 if (xhr.responseJSON && Array.isArray(xhr.responseJSON.errors)) {
@@ -174,6 +202,8 @@
                             }
                         });
                     });
+
+                    loadData();
 
                 })
             </script>
