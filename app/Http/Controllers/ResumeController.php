@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
+
 class ResumeController extends Controller
 {
 
 public function index()
 {
-   return view('cv.index');
+    $profile = Profile::first();
+
+    return view('cv.index', ['profile' => $profile] );
 }
 
 }
-
-
-

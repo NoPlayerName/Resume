@@ -18,7 +18,7 @@
                                             <label for="formFile" class="form-label">Foto</label>
                                             <input class="form-control form-control-sm" name="foto" type="file" id="formFile">
                                         </div>
-                                        <img id="foto" src="{{ asset('storage/dummy.jpg')}}" class="img-thumbnail" alt="...">
+                                        <img id="foto" src="{{ asset('storage/dummy.jpg')}}" class="img-thumbnail" alt="..." style="max-width: 151px; max-height: 227px;">
                                     </div>
                                 </div>
                                 <div class="col mb-3">
@@ -38,6 +38,24 @@
                                         <div class="input-group ">
                                             <span class="input-group-text" id="basic-addon1">Tgl Lahir</span>
                                             <input id="tgl_lahir" type="date" name="tgl_lahir" class="form-control form-control-sm" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mt-2 ">
+                                        <div class="input-group ">
+                                            <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-linkedin"></i></span>
+                                            <input id="linkedin" type="text" name="sosmed[linkedin]" class="form-control form-control-sm" placeholder="Linkedin" aria-label="Linkedin" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mt-2 ">
+                                        <div class="input-group ">
+                                            <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-instagram"></i></span>
+                                            <input id="ig" type="text" name="sosmed[ig]" class="form-control form-control-sm" placeholder="Instagram" aria-label="Instagram" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mt-2 ">
+                                        <div class="input-group ">
+                                            <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-facebook"></i></span>
+                                            <input id="facebook" type="text" name="sosmed[facebook]" class="form-control form-control-sm" placeholder="Facebook" aria-label="Facebook" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-md-6 mt-2 ">
@@ -80,18 +98,15 @@
             <script>
                 $(document).ready(function () {
                       CKEDITOR.replace('ckEditor', {
-                        // extraPlugins: 'justify',
                         allowedContent: true,
                         extraAllowedContent: '*[*]{*}',
                         toolbar: [
                             { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'Undo', 'Redo'] },
-                            { name: 'editing', items: ['Find', 'Replace'] },
                             { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
                             { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
                             { name: 'alignment', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
                             { name: 'styles', items: ['Format', 'Font', 'FontSize'] },
                             { name: 'colors', items: ['TextColor', 'BGColor'] },
-                            { name: 'tools', items: ['Maximize'] }
                         ]
                     });
 
@@ -110,6 +125,9 @@
                                             $('#nama').val(data.name);
                                             $('#tmpt_lahir').val(data.tmpt_lahir);
                                             $('#tgl_lahir').val(data.tgl_lahir);
+                                            $('#linkedin').val(data.sosmed["linkedin"]);
+                                            $('#ig').val(data.sosmed["ig"]);
+                                            $('#facebook').val(data.sosmed["facebook"]);
                                             $('#email').val(data.kontak["email"]);
                                             $('#hp').val(data.kontak["hp"]);
                                             $('#profile_id').val(data.id);
@@ -160,6 +178,8 @@
                         e.preventDefault();
 
                         const id = $('#profile_id').val();
+
+                        //  console.log(CKEDITOR.instances.ckEditor.getData());
 
                         syncCkEditor();
                         let ajaxUrl = "{{ route('admin.profile.store') }}";

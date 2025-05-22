@@ -37,7 +37,7 @@ class UpdateProfile
 
                 $filePath = $data->foto->store(JenisDokumen::FOTO->getDirName(), 'public');
 
-                $profile->dokumen()->update(
+                $profile->dokumen()->updateOrCreate(
                     ['type_dokumen' => JenisDokumen::FOTO],
                     ['file_path' => $filePath]
                 );

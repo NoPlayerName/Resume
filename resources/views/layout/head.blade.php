@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Muhammad Ruhiyat</title>
+    <title>{{ $profile->name }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -66,15 +66,15 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-column justify-content-center">
         <div class="container" data-aos="zoom-in" data-aos-delay="100">
-            <h1>Muhammad Ruhiyat</h1>
-            <p><span class="typed" data-typed-items="Software Developer, IT Support"></span></p>
+            <h1>{{ $profile->name }}</h1>
+            <p><span class="typed" data-typed-items="{{ implode(', ', $profile->role) }}"></span></p>
             <div class="social-links">
                 {{-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> --}}
                 {{-- <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> --}}
-                <a href="https://www.instagram.com/muhammadruhiyat02" target="_blank" class="instagram"><i
+                <a href="{{ $profile->sosmed['ig'] }}" target="_blank" class="instagram"><i
                         class="bx bxl-instagram"></i></a>
                 {{-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> --}}
-                <a href="https://www.linkedin.com/in/muhammad-ruhiyat-2163ab1b1/" class="linkedin" target="_blank"><i
+                <a href="{{ $profile->sosmed['linkedin'] }}" class="linkedin" target="_blank"><i
                         class="bx bxl-linkedin"></i></a>
             </div>
         </div>
@@ -86,7 +86,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container">
-            
+
             <div class="copyright">
                 &copy; Copyright {{ date('Y') }}
             </div>

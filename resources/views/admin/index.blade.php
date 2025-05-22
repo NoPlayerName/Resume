@@ -1,5 +1,5 @@
 @extends('layout_admin.head')
-@extends('component.sidebar')
+@include('component.sidebar')
 @section('main')
         <main>
             <div class="container-fluid px-4">
