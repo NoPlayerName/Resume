@@ -72,7 +72,7 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return $this->responseSuccess('Logout berhasil', [
-            'redirect_url' => url('/'),
+            'redirect_url' => route('login'),
         ]);
     }
 

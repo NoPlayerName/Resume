@@ -51,6 +51,13 @@
         <script>
 
             $(document).ready(function () {
+
+                const logOut = localStorage.getItem('logout-message');
+                if (logOut) {
+                    toastr.success(logOut);
+                    localStorage.removeItem('logout-message');
+                }
+
                 $('#login').on('submit', function (e) {
                     e.preventDefault();
                     $.ajax({
@@ -58,10 +65,10 @@
                         url: "{{ route('login.sign') }}",
                         data: $(this).serialize(),
                         success: function (response) {
-                            toastr.success(response.message);
+                            localStorage.setItem('success', response.message);
                                 setTimeout(function () {
                                     window.location.href = response.data.redirect_url;
-                                }, 3000);
+                                }, 1000);
                             // if (response.status === 200) {
 
                             // } else {

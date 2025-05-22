@@ -93,6 +93,14 @@
         // Set toastr globally
         $(document).ready(function () {
             setupToastr();
+
+            const successMessage = localStorage.getItem('success');
+            if (successMessage) {
+                toastr.success(successMessage);
+                localStorage.removeItem('success');
+            }
+
+
             $('#logout').on('click', function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -103,10 +111,10 @@
                     },
                     success: function (response) {
                         if (response.status === 200) {
-                            toastr.success(response.message);
+                            localStorage.setItem('logout-message', response.message);
                             setTimeout(function () {
                                 window.location.href = response.data.redirect_url;
-                            }, 3000);
+                            }, 1000);
                         } else {
                             toastr.error(response.message);
                         }

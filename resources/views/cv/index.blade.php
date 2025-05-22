@@ -14,35 +14,12 @@
 
                 <div class="row">
                     <div class="col-lg-3 ">
-                        <img src="{{ url('assets/img/4X6.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ url('assets/img/4X6.jpg') }}" class="img-thumbnail" alt="">
+                        {{-- <img id="foto" src="{{ $profile->foto}}" class="img-thumbnail" alt="..." style="max-width: 151px; max-height: 227px;"> --}}
                     </div>
                     <div class="col-lg-8 pt-4 pt-lg-0 content">
-                        <h3>Software Developer &amp; IT Support.</h3>
-                        <p>
-                            Saya Muhammad Ruhiyat, Lulusan S1 Teknik Informatika Universitas Singaperbangsa Karawang, saya
-                            seorang Software Developer dan juga IT Support. Saya memiliki
-                            pengalaman bekerja sebagai IT Support selama satu tahun disalah satu rumah sakit di Karawang,
-                            mejabat sebagi Koordinator IT selama sembilan bulan. Dan saat ini saya bekerja sebagai Software
-                            Developer pada PT. Duta Visual Nusantara Tivi Tujuh (Trans7). Saya memiliki keahlian dalam
-                            programing, troubleshooting hardware dan software .
-                        </p>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Tanggal Lahir :</strong> <span>2
-                                            September 1998</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Tempat Tinggal :</strong>
-                                        <span>Karawang</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Pendidikan :</strong> <span>S1 Teknik
-                                            Informatika</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        {{-- <p>
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
-            </p> --}}
+                       {!! $profile->about_me !!}
+
                     </div>
                 </div>
 
@@ -348,14 +325,13 @@
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
-                                <p>muhammadruhiyat020998@gmail.com</p>
+                                <p>{{ $profile->kontak['email'] }}</p>
                             </div>
 
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Telepon:</h4>
-                                <p>+6283815797662</p>
-                                <p>+6285155277881</p>
+                                <p>{{ $profile->kontak['hp'] }}</p>
                             </div>
 
                         </div>
