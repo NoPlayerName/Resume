@@ -14,6 +14,11 @@
                         Profile
 
                     </a>
+                    <a class="nav-link collapsed {{ Route::is('admin.skills.index') ? 'active' : '' }}" href="{{ route('admin.skills.index') }}">
+
+                        Skills
+
+                    </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
