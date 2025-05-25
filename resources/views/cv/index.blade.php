@@ -18,7 +18,7 @@
                         {{-- <img id="foto" src="{{ $profile->foto}}" class="img-thumbnail" alt="..." style="max-width: 151px; max-height: 227px;"> --}}
                     </div>
                     <div class="col-lg-8 pt-4 pt-lg-0 content">
-                       {!! $profile->about_me !!}
+                       {!! @$profile->about_me !!}
 
                     </div>
                 </div>
@@ -325,13 +325,13 @@
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
-                                <p>{{ $profile->kontak['email'] }}</p>
+                                <p>{{ @$profile->kontak['email'] }}</p>
                             </div>
 
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Telepon:</h4>
-                                <p>{{ $profile->kontak['hp'] }}</p>
+                                <p>{{ @$profile->kontak['hp'] }}</p>
                             </div>
 
                         </div>

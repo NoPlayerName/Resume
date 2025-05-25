@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Skills\SkillsData;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
 class SkillsController extends Controller
@@ -19,20 +21,23 @@ class SkillsController extends Controller
         return abort(401, 'unauthorize');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function getSkills()
     {
-        //
+        if(auth()->user()->can('view')) {
+            $skills = Skill::orderBy('order', 'asc')->get();
+            return response()->json($skills);
+        }
+        return abort(401, 'unauthorize');
     }
+
+
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SkillsData $data)
     {
-        //
+        dd($data);
     }
 
     /**

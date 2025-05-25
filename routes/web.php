@@ -33,4 +33,5 @@ Route::scopeBindings()->middleware('auth')->prefix('admin')->name('admin.')->gro
     Route::resource('profile', ProfileController::class)->except(['create']);
     Route::resource('skills', SkillsController::class)->except(['create']);
     Route::get('get-profile', [ProfileController::class, 'getProfile'])->name('get-profile');
+    Route::get('get-skills', [SkillsController::class, 'getSkills'])->name('get-skills');
 });
