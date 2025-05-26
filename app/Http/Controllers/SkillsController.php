@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Skills\SkillsResponse;
+use App\Action\Skills\StoreSkills;
 use App\Data\Skills\SkillsData;
 use App\Models\Skill;
 use Illuminate\Http\Request;
@@ -16,6 +18,7 @@ class SkillsController extends Controller
 
         if(auth()->user()->can('view')) {
             $title = 'Skills';
+            
             return view('admin.skills', ['title' => $title]);
         }
         return abort(401, 'unauthorize');
@@ -23,9 +26,11 @@ class SkillsController extends Controller
 
     public function getSkills()
     {
+      
         if(auth()->user()->can('view')) {
             $skills = Skill::orderBy('order', 'asc')->get();
-            return response()->json($skills);
+
+            return $this->responseSuccess(data: $skills->isEmpty() ? null : SkillsResponse::collection($skills));
         }
         return abort(401, 'unauthorize');
     }
@@ -37,7 +42,16 @@ class SkillsController extends Controller
      */
     public function store(SkillsData $data)
     {
-        dd($data);
+        
+        if(auth()->user()->can('edit')) {
+            foreach ($data->skills as $val) {
+                    StoreSkills::run($val);  
+            }
+            return $this->responseSuccess(
+                'Skills berhasil disimpan'
+            );
+        }
+        return abort(401, 'unauthorize');
     }
 
     /**

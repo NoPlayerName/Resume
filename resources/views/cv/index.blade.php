@@ -40,83 +40,20 @@
                 <div class="row skills-content">
                     <div class="col-lg-3"></div>
                     <div class="col-lg-3">
-
-                        <div class="progress">
-                            <i class="fa fa-brands fa-laravel" style="font-size: 50px; color: #d50000;"></i>
-                            <span class="skill">LARAVEL</span>
-                            {{-- <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div> --}}
-                        </div>
-
-                        <div class="progress">
-                            <i class="fa fa-sharp fa-solid fa-fire" style="font-size: 50px; color: red;"></i>
-                            <span class="skill">CODEIGNITER</span>
-                            {{-- <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div> --}}
-                        </div>
-
-                        <div class="progress">
-                            <i class="fa fa-brands fa-square-js" style="font-size: 50px; color: #ffee58;"></i>
-                            <span class="skill">JavaScript</span>
-                            {{-- <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div> --}}
-                        </div>
-                        <div class="progress">
-                            <i class="fa fa-brands fa-css3-alt" style="font-size: 50px; color: #1c87e5;"></i>
-                            <span class="skill">CSS</span>
-                            {{-- <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div> --}}
-                        </div>
-
+                        @forEach ($skills as $skill)
+                            <div class="progress">
+                                {!! @$skill->icon !!}
+                                {{-- <i class="fa fa-brands fa-{{ @$skills->icon }}" style="font-size: 50px; color: #aab6fe;"></i> --}}
+                                <span class="skill">{{ @$skill->name }}</span> 
+                                {{-- <div class="progress-bar-wrap">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div> --}}
+                            </div>
+                        @endforeach
                     </div>
 
-                    <div class="col-lg-3">
-
-                        <div class="progress">
-                            <i class="fa fa-brands fa-php" style="font-size: 50px; color: #aab6fe;"></i>
-                            <span class="skill">PHP</span>
-                            {{-- <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div> --}}
-                        </div>
-
-                        <div class="progress">
-                            <i class="fa fa-brands fa-html5" style="font-size: 50px; color: #ff8f00;"></i>
-                            <span class="skill">HTML5</span>
-                            {{-- <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div> --}}
-                        </div>
-
-                        <div class="progress">
-                            <i class="fa fa-brands fa-bootstrap" style="font-size: 50px; color: #6a1b9a;"></i>
-                            <span class="skill">Bootstrap</span>
-                            {{-- <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div> --}}
-                        </div>
-                        <div class="progress">
-                            <i class="fa fa-thin fa-screwdriver-wrench" style="font-size: 50px;"></i>
-                            <span class="skill">Troubleshooting</span>
-                            {{-- <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div> --}}
-                        </div>
-
-                    </div>
-                    <div class="col-lg-3"></div>
+                  
 
                 </div>
 

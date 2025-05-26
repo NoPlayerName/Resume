@@ -18,6 +18,9 @@ class SkillsData extends Data
     public static function rules(ValidationContext $context): array
     {
         return [
+            'skills.*.id' => [
+                'nullable',
+            ],
             'skills.*.name' => [
                 'required',
             ],

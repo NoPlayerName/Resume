@@ -16,25 +16,7 @@
                                     <div class="mb-3">
                                         <div class="input-group">
                                             <ul id="input-list">
-                                                <li class="input-item mb-2">
-                                                    <div class="row g-2 align-items-center">
-                                                        <div class="col-auto">
-                                                            <span class="handle"><i class="fa-solid fa-bars"></i></span>
-                                                        </div>
-                                                        <div class="col">
-                                                            <input class="form-control form-control-sm" type="text" name="skills[0][name]" placeholder="Nama skill">
-                                                        </div>
-                                                        <div class="col">
-                                                            <input class="form-control form-control-sm" type="text" name="skills[0][icon]" placeholder="Icon (opsional)">
-                                                        </div>
-                                                        <input type="hidden" name="skills[0][order]" value="0">
-                                                        <div class="col-auto">
-                                                            <button type="button" class="btn btn-sm remove-btn" data-bs-toggle="tooltip" title="Hapus">
-                                                                <i class="fa-solid fa-trash" style="color: #b30000;"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                {{-- list ditambah dengan jquery sortable --}}
                                             </ul>
                                         </div>
                                         <button type="button" id="add-skills" class="btn btn-primary btn-sm">Tambah Role</button>
@@ -52,10 +34,10 @@
                 $(document).ready(function () {
 
 
-                    const $inputList = $('#input-list');
+                    const inputList = $('#input-list');
 
                     // Inisialisasi Sortable
-                    new Sortable($inputList[0], {
+                    new Sortable(inputList[0], {
                         animation: 1000,
                         handle: '.handle',
                         onEnd: updateInputNames
@@ -63,7 +45,7 @@
 
                     // Tambah item baru
                     $('#add-skills').on('click', function () {
-                        const index = $inputList.children().length;
+                        const index = inputList.children().length;
 
                         const $newItem = $(`
                             <li class="input-item mb-2">
@@ -87,58 +69,95 @@
                             </li>
                         `);
 
-                        $inputList.append($newItem);
+                        inputList.append($newItem);
                     });
 
                     // Hapus item
-                    $inputList.on('click', '.remove-btn', function () {
+                    inputList.on('click', '.remove-btn', function () {
                         $(this).closest('.input-item').remove();
                         updateInputNames();
                     });
 
                     // Update semua input name dan order agar konsisten
                     function updateInputNames() {
-                        $inputList.children('.input-item').each(function (i) {
+                        inputList.children('.input-item').each(function (i) {
                             $(this).find('[name$="[name]"]').attr('name', `skills[${i}][name]`);
                             $(this).find('[name$="[icon]"]').attr('name', `skills[${i}][icon]`);
                             $(this).find('[name$="[order]"]').attr('name', `skills[${i}][order]`).val(i);
                         });
                     }
 
+                    function escapeHtml(unsafe) {
+                        return unsafe
+                            .replace(/&/g, "&amp;")
+                            .replace(/</g, "&lt;")
+                            .replace(/>/g, "&gt;")
+                            .replace(/"/g, "&quot;")
+                            .replace(/'/g, "&#39;");
+                    }
 
                     const loadData = () => {
+                        inputList.empty(); // Kosongkan daftar sebelum memuat ulang
                         $.ajax({
                             type: 'GET',
-                            url: "{{ route('admin.get-profile') }}",
+                            url: "{{ route('admin.get-skills') }}",
                             success: function (response) {
                                     const data = response.data;
-                                    if (data) {
 
-                                            $('#nama').val(data.name);
-                                            $('#tmpt_lahir').val(data.tmpt_lahir);
-                                            $('#tgl_lahir').val(data.tgl_lahir);
-                                            $('#linkedin').val(data.sosmed["linkedin"]);
-                                            $('#ig').val(data.sosmed["ig"]);
-                                            $('#facebook').val(data.sosmed["facebook"]);
-                                            $('#email').val(data.kontak["email"]);
-                                            $('#hp').val(data.kontak["hp"]);
-                                            $('#profile_id').val(data.id);
-                                            $('#ckEditor').val(data.about_me);
-                                            $('#foto').attr('src', data.foto ? `${data.foto}` : '{{ asset(`storage/dummy.jpg`) }}');
-
-                                            $('#role-wrapper').empty();
-
-                                            data.role.forEach(function(role, index) {
-                                                    const inputGroup = `
-                                                        <div class="input-group mb-2">
-                                                            <span class="input-group-text" id="basic-addon1">Role</span>
-                                                            <input type="text" name="role[]" class="form-control form-control-sm" placeholder="Masukkan role" value="${role}">
-                                                            <button type="button" class="btn btn-sm ms-2 remove-role" data-bs-toggle="tooltip" title="Hapus"><i class="fa-solid fa-trash" style="color: #b30000;"></i></button>
+                                            if (data) {
+                                                data.forEach(function(item, index) {
+                                                    const skills = item.skills; 
+                                                    const skillItem = `<li class="input-item mb-2">
+                                                    <div class="row g-2 align-items-center">
+                                                        <div class="col-auto">
+                                                            <span class="handle"><i class="fa-solid fa-bars"></i></span>
                                                         </div>
-                                                    `;
-                                                    $('#role-wrapper').append(inputGroup);
-                                            });
-                                    }
+                                                        <div class="col">
+                                                            <input class="form-control form-control-sm" type="text" name="skills[${index}][name]" value="${skills.name}" placeholder="Nama skill">
+                                                        </div>
+                                                        <div class="col">
+                                                            <input class="form-control form-control-sm" type="text" name="skills[${index}][icon]" value="${escapeHtml(skills.icon)}" placeholder="Icon (opsional)">
+                                                           
+                                                        </div>
+                                                        <input type="hidden" name="skills[${index}][order]" value="${skills.order}">
+                                                        <input type="hidden" name="skills[${index}][id]" value="${skills.id}">
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-sm remove-btn" data-bs-toggle="tooltip" title="Hapus">
+                                                                <i class="fa-solid fa-trash" style="color: #b30000;"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </li>`;
+
+                                                inputList.append(skillItem);
+                                                });
+                                                
+                                            }else{
+                                                
+                                               const Skills = `<li class="input-item mb-2">
+                                                    <div class="row g-2 align-items-center">
+                                                        <div class="col-auto">
+                                                            <span class="handle"><i class="fa-solid fa-bars"></i></span>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input class="form-control form-control-sm" type="text" name="skills[0][name]" placeholder="Nama skill">
+                                                        </div>
+                                                        <div class="col">
+                                                            <input class="form-control form-control-sm" type="text" name="skills[0][icon]" placeholder="Icon (opsional)">
+                                                        </div>
+                                                        <input type="hidden" name="skills[0][order]" value="0">
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-sm remove-btn" data-bs-toggle="tooltip" title="Hapus">
+                                                                <i class="fa-solid fa-trash" style="color: #b30000;"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </li>`;
+
+                                                inputList.append(Skills);
+                                           
+                                            }
+                                    
 
                             },
                             error: function (xhr) {
@@ -174,7 +193,7 @@
                             processData: false,
                             success: function (response) {
                                 toastr.success(response.message);
-                                // loadData();
+                                loadData();
                                 // setTimeout(function () {
                                 //     window.location.href = response.data.redirect_url;
                                 // }, 3000);
@@ -198,7 +217,7 @@
                         });
                     });
 
-                    // loadData();
+                    loadData();
 
                 })
             </script>
