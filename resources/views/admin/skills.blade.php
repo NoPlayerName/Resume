@@ -19,7 +19,7 @@
                                                 {{-- list ditambah dengan jquery sortable --}}
                                             </ul>
                                         </div>
-                                        <button type="button" id="add-skills" class="btn btn-primary btn-sm">Tambah Role</button>
+                                        <button type="button" id="add-skills" class="btn btn-primary btn-sm">Tambah Skill</button>
                                     </div>
                                     <button type="submit" id="btn-action" class="btn btn-primary btn-sm">Simpan</button>
                                 </div>
@@ -106,7 +106,7 @@
 
                                             if (data) {
                                                 data.forEach(function(item, index) {
-                                                    const skills = item.skills; 
+                                                    const skills = item.skills;
                                                     const skillItem = `<li class="input-item mb-2">
                                                     <div class="row g-2 align-items-center">
                                                         <div class="col-auto">
@@ -117,7 +117,7 @@
                                                         </div>
                                                         <div class="col">
                                                             <input class="form-control form-control-sm" type="text" name="skills[${index}][icon]" value="${escapeHtml(skills.icon)}" placeholder="Icon (opsional)">
-                                                           
+
                                                         </div>
                                                         <input type="hidden" name="skills[${index}][order]" value="${skills.order}">
                                                         <input type="hidden" name="skills[${index}][id]" value="${skills.id}">
@@ -131,9 +131,9 @@
 
                                                 inputList.append(skillItem);
                                                 });
-                                                
+
                                             }else{
-                                                
+
                                                const Skills = `<li class="input-item mb-2">
                                                     <div class="row g-2 align-items-center">
                                                         <div class="col-auto">
@@ -155,9 +155,9 @@
                                                 </li>`;
 
                                                 inputList.append(Skills);
-                                           
+
                                             }
-                                    
+
 
                             },
                             error: function (xhr) {
@@ -175,7 +175,7 @@
 
                         //  console.log(CKEDITOR.instances.ckEditor.getData());
 
-                        
+
                         let ajaxUrl = "{{ route('admin.skills.store') }}";
                         const formData = new FormData(this);
                         formData.append('_token', $('meta[name="csrf-token"]').attr('content'));

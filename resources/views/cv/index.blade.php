@@ -32,31 +32,24 @@
 
                 <div class="section-title">
                     <h2>Kemampuan</h2>
-                    {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                        consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                        fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
                 </div>
 
-                <div class="row skills-content">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-3">
-                        @forEach ($skills as $skill)
-                            <div class="progress">
-                                {!! @$skill->icon !!}
-                                {{-- <i class="fa fa-brands fa-{{ @$skills->icon }}" style="font-size: 50px; color: #aab6fe;"></i> --}}
-                                <span class="skill">{{ @$skill->name }}</span> 
-                                {{-- <div class="progress-bar-wrap">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div> --}}
-                            </div>
-                        @endforeach
+                @foreach ($skills as $skill)
+                    @if ($loop->index % 5 === 0)
+                        <div class="row skills-content justify-content-center text-center mb-3"> {{-- Baris baru --}}
+                    @endif
+
+                    <div class="col-lg-2">
+                        <div class="progress">
+                            {!! @$skill->icon !!}
+                            <span class="skill">{{ @$skill->name }}</span>
+                        </div>
                     </div>
 
-                  
-
-                </div>
-
+                    @if ($loop->index % 5 === 4 || $loop->last)
+                        </div> {{-- Tutup baris --}}
+                    @endif
+                @endforeach
             </div>
         </section><!-- End Skills Section -->
 
