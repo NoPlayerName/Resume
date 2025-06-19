@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PendidikanPengalamanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SkillsController;
@@ -34,4 +35,5 @@ Route::scopeBindings()->middleware('auth')->prefix('admin')->name('admin.')->gro
     Route::resource('skills', SkillsController::class)->except(['create']);
     Route::get('get-profile', [ProfileController::class, 'getProfile'])->name('get-profile');
     Route::get('get-skills', [SkillsController::class, 'getSkills'])->name('get-skills');
+    Route::resource('resume', PendidikanPengalamanController::class)->except(['create']);
 });
